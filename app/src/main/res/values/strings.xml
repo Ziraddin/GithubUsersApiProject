@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">GithubUsersApiProject</string>
+    <string name="username">Username</string>
+    <string name="repository_name">Repository Name</string>
+    <string name="_76">76</string>
+    <string name="no_description">no description</string>
+</resources>
