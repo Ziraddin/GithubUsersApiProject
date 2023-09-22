@@ -7,7 +7,11 @@ data class RepositoryDTO(
 )
 
 data class Repos(
-    val id: Int, val name: String, val description: String?, val owner: Owner, @SerializedName("stargazers_count") val stargazerscount: Int
+    val id: Int,
+    val name: String,
+    val description: String?,
+    val owner: Owner,
+    @SerializedName("stargazers_count") val stargazerscount: Int
 )
 
 data class Owner(

@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import com.zireddinismayilov.githubusersapiproject.R
 import com.zireddinismayilov.githubusersapiproject.data.RepositoryDTO
+import jp.wasabeef.picasso.transformations.CropCircleTransformation
 
 class Adapter(var data: RepositoryDTO) : RecyclerView.Adapter<Adapter.ViewHolder>() {
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -20,7 +21,9 @@ class Adapter(var data: RepositoryDTO) : RecyclerView.Adapter<Adapter.ViewHolder
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.row_item, parent, false))
+        return ViewHolder(
+            LayoutInflater.from(parent.context).inflate(R.layout.row_item, parent, false)
+        )
     }
 
     override fun getItemCount(): Int {
@@ -38,7 +41,8 @@ class Adapter(var data: RepositoryDTO) : RecyclerView.Adapter<Adapter.ViewHolder
             holder.description.text = dataValue.description
         }
         if (dataValue.owner.avatarurl.isNotEmpty()) {
-            Picasso.get().load(dataValue.owner.avatarurl).into(holder.avatar)
+            Picasso.get().load(dataValue.owner.avatarurl).resize(200, 200).centerCrop()
+                .transform(CropCircleTransformation()).into(holder.avatar)
         }
 
     }
